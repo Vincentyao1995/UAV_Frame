@@ -4,6 +4,8 @@
 #include <QtGui>
 #include <QFileDialog>
 #include <QtWidgets/QMessageBox>
+#include "mclmcr.h"
+#include "myFuncdll.h"
 //2017.1.15 12:00 视频还不能控制格式，现在只能打开avi格式的文件；而且没有其他提示。
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -77,7 +79,20 @@ void MainWindow::on_pushButtonStop_clicked()
 	else
 		QMessageBox::warning(this, tr("Video loading error"), tr("video hasn't been loaded"));
 }
-void MainWindow::coordinate()
-{
 
+
+
+void MainWindow::on_pushButtonTestDll_clicked()
+{
+    //QLibrary lib("testdll.dll");
+    //QMessageBox msg;
+	if (!myFuncdllInitialize())
+		QMessageBox::information(NULL, "NO", "DLL is not loaded!");
+
+	else if (myFuncdllInitialize())
+		QMessageBox::information(NULL, "OK", "DLL load is OK!");
+
+	if (mlfMyFunc(1, NULL))
+		QMessageBox::information(NULL, "plot!", "DLL is not loaded!");
+    
 }

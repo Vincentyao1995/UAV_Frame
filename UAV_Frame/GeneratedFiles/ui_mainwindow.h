@@ -45,6 +45,7 @@ public:
     QPushButton *pushButtonPause;
     QPushButton *pushButtonPlay;
     QPushButton *pushButtonStop;
+    QPushButton *pushButtonTestDll;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -97,8 +98,11 @@ public:
         pushButtonPlay->setObjectName(QStringLiteral("pushButtonPlay"));
         pushButtonPlay->setGeometry(QRect(20, 180, 91, 31));
         pushButtonStop = new QPushButton(centralWidget);
-        pushButtonStop->setObjectName(QStringLiteral("pushButton_2"));
+        pushButtonStop->setObjectName(QStringLiteral("pushButtonStop"));
         pushButtonStop->setGeometry(QRect(20, 220, 91, 31));
+        pushButtonTestDll = new QPushButton(centralWidget);
+        pushButtonTestDll->setObjectName(QStringLiteral("pushButtonTestDll"));
+        pushButtonTestDll->setGeometry(QRect(30, 270, 75, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -114,7 +118,7 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(listWidget, SIGNAL(currentRowChanged(int)), stackedWidget, SLOT(setCurrentIndex(int)));
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -141,6 +145,7 @@ public:
         pushButtonPause->setText(QApplication::translate("MainWindow", "\346\232\202\345\201\234", 0));
         pushButtonPlay->setText(QApplication::translate("MainWindow", "\346\222\255\346\224\276", 0));
         pushButtonStop->setText(QApplication::translate("MainWindow", "\345\201\234\346\255\242", 0));
+        pushButtonTestDll->setText(QApplication::translate("MainWindow", "\346\230\276\347\244\272", 0));
     } // retranslateUi
 
 };

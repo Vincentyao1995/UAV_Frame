@@ -21,5 +21,21 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     Dialog.h
-
+	testdll.h
 FORMS    += mainwindow.ui
+OTHER_FILES += \
+testdll.lib \
+testdll.dll
+
+INCLUDEPATH += F:\Program Files\MATLAB\R2015b\extern\include
+INCLUDEPATH += F:\Program Files\MATLAB\R2015b\extern\include\win64
+
+LIBS +=  E:\College\Code\QT\lib\microsoft\libmx.lib
+
+LIBS +=  E:\College\Code\QT\lib\microsoft\mclmcr.lib
+
+LIBS +=  E:\College\Code\QT\lib\microsoft\mclmcrrt.lib
+
+
+
+

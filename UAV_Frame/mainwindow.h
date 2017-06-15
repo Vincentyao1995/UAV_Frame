@@ -13,9 +13,9 @@
 #include <QStackedWidget>
 #include <QHBoxLayout>
 #include "ui_mainwindow.h"
-#include <QMediaPlayer>     // 使用QMediaPlayer类
-#include <QMediaPlaylist>   // 使用QMediaPlaylist类
-#include <QVideoWidget>     // 使用QVideoWidget类
+#include <QMediaPlayer>     // 使锟斤拷QMediaPlayer锟斤拷
+#include <QMediaPlaylist>   // 使锟斤拷QMediaPlaylist锟斤拷
+#include <QVideoWidget>     // 使锟斤拷QVideoWidget锟斤拷
 namespace Ui {
 class MainWindow;
 }
@@ -36,7 +36,11 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButtonPause_clicked();
     void on_pushButtonPlay_clicked();
+
     void on_pushButtonStop_clicked();
+
+    void on_pushButtonTestDll_clicked();
+
 private:
     Ui::MainWindow *ui;
 	bool playButton;
