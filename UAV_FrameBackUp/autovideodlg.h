@@ -3,8 +3,8 @@
 
 #include <QDialog>
 #include <QMediaPlayer>     // 使用QMediaPlayer类
-#include <QVideoWidget>
-#include <QMessageBox>
+#include <QMediaPlaylist>   // 使用QMediaPlaylist类
+#include <QVideoWidget>     // 使用QVideoWidget类
 namespace Ui {
 class AutoVideoDlg;
 }

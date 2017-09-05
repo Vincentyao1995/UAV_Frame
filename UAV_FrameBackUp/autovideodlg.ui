@@ -65,7 +65,7 @@
     <string>停止</string>
    </property>
   </widget>
-  <widget class="QVideoWidget" name="videoWidget" native="true">
+  <widget class="QVideoWidget" name="video" native="true">
    <property name="geometry">
     <rect>
      <x>70</x>

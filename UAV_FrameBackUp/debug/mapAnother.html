@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Map showing</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:500px;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=96kOsWauxbSCrD79o0avNtf9cVkUe5k1"></script>
+	<title>Add info window with complicated info</title>
+</head>
+<body>
+	<div id="allmap"></div>
+	<p>Click marked point, user could see the information window formed by text and pictures</p>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var sContent =
+	"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>Friendship Square</h4>" + 
+	"<img style='float:right;margin:4px' id='imgDemo' src='../img/tianAnMen.jpg' width='139' height='104' title='天安门'/>" + 
+	"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>Detecting Area 1</p>" + 
+	"</div>";
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(114.367645, 30.532144);
+	var marker = new BMap.Marker(point);
+	var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+	map.centerAndZoom(point, 20);
+	map.addOverlay(marker);
+	
+	map.addControl(new BMap.NavigationControl({offset: new BMap.Size(10, 90)}));
+	map.enableScrollWheelZoom();                  // 启用滚轮放大缩小。
+	map.enableKeyboard();                         // 启用键盘操作。
+	map.enableContinuousZoom();                   // 启用连续缩放
+
+	var myIcon = new BMap.Icon("images/Point.png", new BMap.Size(20,25));
+	var marker = new BMap.Marker(point,{icon:myIcon});   // 创建标注
+	map.addOverlay(marker);                              // 加载标注
+	
+	
+	marker.addEventListener("click", function(){          
+	   this.openInfoWindow(infoWindow);
+	   //图片加载完毕重绘infowindow
+	   document.getElementById('imgDemo').onload = function (){
+		   infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+	   }
+	});
+</script>

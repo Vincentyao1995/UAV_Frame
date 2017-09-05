@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>840</width>
-    <height>557</height>
+    <width>874</width>
+    <height>564</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -101,7 +101,7 @@ color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, s
      </rect>
     </property>
     <property name="text">
-     <string>加载视频(手动)</string>
+     <string>查看视频(手动)</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButtonPause">
@@ -153,8 +153,79 @@ color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, s
      </rect>
     </property>
     <property name="text">
-     <string>加载视频(自动)</string>
+     <string>开始检测(自动)</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>310</y>
+      <width>91</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>主要人流方向：</string>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_stream">
+       <property name="text">
+        <string>北</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>人流密度：</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lablel_density">
+       <property name="text">
+        <string>低</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>人流趋势：</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_trend">
+       <property name="text">
+        <string>聚集</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>危险程度：</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_danger">
+       <property name="text">
+        <string>中</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -162,7 +233,7 @@ color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, s
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>840</width>
+     <width>874</width>
      <height>23</height>
     </rect>
    </property>

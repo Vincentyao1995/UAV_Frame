@@ -33,6 +33,9 @@ public:
 	QString videoPath;
 	void judgeVideoType(QString);
 	void coordinate();
+
+public slots:
+    void dataUpdate();
 private slots:
     void on_pushButton_clicked();
     void on_pushButtonPause_clicked();

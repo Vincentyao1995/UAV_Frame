@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QHBoxLayout>
 #include <QtGui>
+#include <QtCore>
 #include <QFileDialog>
 #include <QtWidgets/QMessageBox>
 //2017.1.15 12:00 视频还不能控制格式，现在只能打开avi格式的文件；而且没有其他提示。
@@ -12,12 +13,28 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     showWeb(ui->page_2);
 	playButton = false;
+
+    //create a new timer
+    QTimer *timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()), this, SLOT(dataUpdate() ));
+    timer->start(1000);
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::dataUpdate()
+{
+    QDateTime time = QDateTime::currentDateTime();
+    ui->label_stream->setText("0.3");
+    ui->label_trend->setText("0.3");
+    ui->label_danger->setText("0.3");
+    ui->lablel_density->setText("0.3");
+}
+
 void MainWindow::showWeb(QWebEngineView* view)
 {
 	QString strTest = "http://baidu.com";
@@ -25,7 +42,7 @@ void MainWindow::showWeb(QWebEngineView* view)
 	QString  strMapPath = "file:///";
 	strMapPath += QCoreApplication::applicationDirPath();
     strMapPath += "/map.html";
-    strMapPath = "file:///E:/College/Code/QT/workspace/UAV_Frame/debug/map.html";
+    strMapPath = "file:///E:/College/Code/QT/workspace/UAV_FrameBackUp/debug/map.html";
     view->setUrl(QUrl(strMapPath));
 	view->resize(1024, 750);
 	view->show();
@@ -33,13 +50,9 @@ void MainWindow::showWeb(QWebEngineView* view)
 void MainWindow::showVideo(QVideoWidget *videoWidget)
 {
 	player = new QMediaPlayer;
-	//QString videoPath = "F:/QQDownload/wire/The.Wire.S01E01.The.Target.AC3.DVDRip.XviD-MEDiEVAL.avi";
-	player->setMedia(QUrl::fromLocalFile(videoPath));
+    //QString videoPath = "file:///F:/QQDownload/AshesOfTime.avi";
+    player->setMedia(QUrl::fromLocalFile(videoPath));
 	//bool videoAvailable=false;
-	connect(player,
-		SLOT(player->error()), 
-		this, 
-		SIGNAL(QMessageBox::warning(this, tr("video error"), tr("%1").arg(player->error()))));
 	player->setVideoOutput(videoWidget);
 	videoWidget->show();
 	player->play();
@@ -47,7 +60,7 @@ void MainWindow::showVideo(QVideoWidget *videoWidget)
 }
 void MainWindow::on_pushButton_clicked()
 {
-	videoPath = QFileDialog::getOpenFileName();
+    videoPath = QFileDialog::getOpenFileName();
 	//judgeVideoType(videoPath);
 	showVideo(ui->page);
 }

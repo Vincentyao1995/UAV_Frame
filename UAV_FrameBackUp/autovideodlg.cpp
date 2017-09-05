@@ -1,5 +1,8 @@
 #include "autovideodlg.h"
 #include "ui_autovideodlg.h"
+#include <QtWidgets/QMessageBox>
+#include <QtGui>
+#include <QFileDialog>
 
 AutoVideoDlg::AutoVideoDlg(QWidget *parent) :
     QDialog(parent),
@@ -7,7 +10,7 @@ AutoVideoDlg::AutoVideoDlg(QWidget *parent) :
 {
     ui->setupUi(this);
     playButton = false;
-    showVideo(ui->videoWidget);
+    showVideo(ui->video);
 }
 
 AutoVideoDlg::~AutoVideoDlg()
@@ -18,13 +21,9 @@ AutoVideoDlg::~AutoVideoDlg()
 void AutoVideoDlg::showVideo(QVideoWidget *videoWidget)
 {
     player = new QMediaPlayer;
-    QString videoPath = "F:\QQDownload\game of throne s704.mp4";
+    videoPath = "F:/QQDownload/AshesOfTime.avi";
+    //videoPath = QFileDialog::getOpenFileName();
     player->setMedia(QUrl::fromLocalFile(videoPath));
-
-    connect(player,
-        SLOT(player->error()),
-        this,
-        SIGNAL(QMessageBox::warning(this, tr("video error"), tr("%1").arg(player->error()))));
     player->setVideoOutput(videoWidget);
     videoWidget->show();
     player->play();
@@ -36,6 +35,7 @@ void AutoVideoDlg::showVideo(QVideoWidget *videoWidget)
 
 void AutoVideoDlg::on_pushButton_play_clicked()
 {
+
     if (playButton != false)
         player->play();
     else
