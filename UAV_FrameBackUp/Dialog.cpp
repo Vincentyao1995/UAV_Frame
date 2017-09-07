@@ -5,7 +5,7 @@ Dialog::Dialog(QWidget *parent)
 	:QDialog(parent)
 {
 	//对话框名称
-	setWindowTitle(tr("UAV_Frame"));
+    setWindowTitle(tr("UAV Based Safety Monitoring System Version 1.0 WHU - 星域浩渺团队"));
 	//设置列表框，即左边的选项框
 	leftList = new QListWidget(this);
 	leftList->insertItem(0, tr("显示监控视频"));

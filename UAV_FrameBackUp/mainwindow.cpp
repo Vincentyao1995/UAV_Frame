@@ -10,7 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    CommonHelper::setStyle("E:/College/Code/QT/workspace/UAV_FrameBackUp/test.qss");
     ui->setupUi(this);
+    ui->listWidget->setStyleSheet("color: white");
     showWeb(ui->page_2);
 	playButton = false;
 
@@ -19,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(timer,SIGNAL(timeout()), this, SLOT(dataUpdate() ));
 
     // set the initial count time to zero
-    countTime = -10;
+    countTime = -5;
 
 }
 
@@ -66,7 +68,7 @@ void MainWindow::dataUpdate()
         textStream = "None";
         textTrend = "None";
         textDanger = "Mid";
-        textDensity = "13/Field";
+        textDensity = "5/Field";
     }
     if (countTime >= 28 && countTime < 32)
     {

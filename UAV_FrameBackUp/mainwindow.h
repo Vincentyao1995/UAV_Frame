@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QFile>
+#include <QApplication>
 #include <QMainWindow>
 #include <QtWebEngineWidgets/QWebEngineHistory>
 #include <QtWebEngineWidgets/QWebEngineHistoryItem>
@@ -53,5 +55,18 @@ private:
 
 
 };
+
+class CommonHelper
+{
+public:
+    static void setStyle(const QString &style) {
+        QFile qss(style);
+        qss.open(QFile::ReadOnly);
+        qApp->setStyleSheet(qss.readAll());
+        qss.close();
+    }
+};
+
+
 
 #endif // MAINWINDOW_H

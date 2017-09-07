@@ -26,3 +26,6 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     autovideodlg.ui
+
+RESOURCES += \
+    resource_configurefile.qrc
