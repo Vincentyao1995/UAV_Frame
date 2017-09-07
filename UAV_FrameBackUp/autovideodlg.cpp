@@ -11,6 +11,7 @@ AutoVideoDlg::AutoVideoDlg(QWidget *parent) :
     ui->setupUi(this);
     playButton = false;
     showVideo(ui->video);
+    player->play();
 }
 
 AutoVideoDlg::~AutoVideoDlg()
@@ -21,7 +22,7 @@ AutoVideoDlg::~AutoVideoDlg()
 void AutoVideoDlg::showVideo(QVideoWidget *videoWidget)
 {
     player = new QMediaPlayer;
-    videoPath = "F:/QQDownload/AshesOfTime.avi";
+    videoPath = "E:/College/Code/QT/workspace/UAV_FrameBackUp/debug/DJI_0018.avi";
     //videoPath = QFileDialog::getOpenFileName();
     player->setMedia(QUrl::fromLocalFile(videoPath));
     player->setVideoOutput(videoWidget);
@@ -35,6 +36,7 @@ void AutoVideoDlg::showVideo(QVideoWidget *videoWidget)
 
 void AutoVideoDlg::on_pushButton_play_clicked()
 {
+
 
     if (playButton != false)
         player->play();
@@ -60,5 +62,6 @@ void AutoVideoDlg::on_pushButton_stop_clicked()
 
 void AutoVideoDlg::on_pushButton_close_clicked()
 {
+
     this->close();
 }

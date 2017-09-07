@@ -5,7 +5,7 @@
 	<title>Map showing</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
-		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		body, html {width: 100%;height: 100%;margin:0;font-family:"寰蒋闆呴粦";}
 		#allmap{width:100%;height:500px;}
 		p{margin-left:5px; font-size:14px;}
 	</style>
@@ -18,34 +18,33 @@
 </body>
 </html>
 <script type="text/javascript">
-	// 百度地图API功能
+	// 鐧惧害鍦板浘API鍔熻兘
 	var sContent =
 	"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>Friendship Square</h4>" + 
-	"<img style='float:right;margin:4px' id='imgDemo' src='../img/tianAnMen.jpg' width='139' height='104' title='天安门'/>" + 
-	"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>Detecting Area 1</p>" + 
+	"<img style='float:right;margin:4px' id='imgDemo' src='friendshipSquare.jpg' width='204' height='104' title='FriendshipSqaure'/>" + 
+	"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:1em'>  Status: No Danger <br> &nbsp&nbsp&nbspPOP Density: 0.80 </p>" + 
 	"</div>";
 	var map = new BMap.Map("allmap");
-	var point = new BMap.Point(114.367645, 30.532144);
-	var marker = new BMap.Marker(point);
-	var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+	var point = new BMap.Point(114.367645, 30.532014);
+	
+	var infoWindow = new BMap.InfoWindow(sContent);  // 鍒涘缓淇℃伅绐楀彛瀵硅薄
 	map.centerAndZoom(point, 20);
-	map.addOverlay(marker);
 	
 	map.addControl(new BMap.NavigationControl({offset: new BMap.Size(10, 90)}));
-	map.enableScrollWheelZoom();                  // 启用滚轮放大缩小。
-	map.enableKeyboard();                         // 启用键盘操作。
-	map.enableContinuousZoom();                   // 启用连续缩放
+	map.enableScrollWheelZoom();                  // 鍚敤婊氳疆鏀惧ぇ缂╁皬
+	map.enableKeyboard();                         // 鍚敤閿洏鎿嶄綔
+	map.enableContinuousZoom();                   // 鍚敤杩炵画缂╂斁
 
 	var myIcon = new BMap.Icon("images/Point.png", new BMap.Size(20,25));
-	var marker = new BMap.Marker(point,{icon:myIcon});   // 创建标注
-	map.addOverlay(marker);                              // 加载标注
+	var marker = new BMap.Marker(point,{icon:myIcon});   // 鍒涘缓鏍囨敞
+	map.addOverlay(marker);                              // 鍔犺浇鏍囨敞
 	
 	
 	marker.addEventListener("click", function(){          
 	   this.openInfoWindow(infoWindow);
-	   //图片加载完毕重绘infowindow
+	   //鍥剧墖鍔犺浇瀹屾瘯閲嶇粯infowindow
 	   document.getElementById('imgDemo').onload = function (){
-		   infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+		   infoWindow.redraw();   //闃叉鍦ㄧ綉閫熻緝鎱紝鍥剧墖鏈姞杞芥椂锛岀敓鎴愮殑淇℃伅妗嗛珮搴︽瘮鍥剧墖鐨勬�婚珮搴﹀皬锛屽鑷村浘鐗囬儴鍒嗚闅愯棌
 	   }
 	});
 </script>

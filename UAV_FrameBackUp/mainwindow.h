@@ -48,6 +48,8 @@ private:
 	bool playButton;
 	QMediaPlayer *player;
     AutoVideoDlg autoDlg;
+    int countTime;
+    QTimer *timer;
 
 
 };
